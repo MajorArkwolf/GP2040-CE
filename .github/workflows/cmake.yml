@@ -65,5 +65,5 @@ jobs:
       uses: actions/upload-artifact@v3.1.1
       with:
         name: GP2040-CE - ${{ matrix.GP2040_BOARDCONFIG }}
-        path: ${{github.workspace}}/build/GP2040-CE_*_${{ matrix.GP2040_BOARDCONFIG }}.uf2
+        path: ${{github.workspace}}/build/GP2040-CE_*_${{ matrix.GP2040_BOARDCONFIG }}.elf
         if-no-files-found: error
