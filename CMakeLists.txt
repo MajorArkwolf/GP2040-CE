@@ -14,12 +14,11 @@ endif()
 
 # set the version for webconfig, etc. based on git
 find_package(Git)
-execute_process(COMMAND ${GIT_EXECUTABLE} describe --tags --always
+execute_process(COMMAND ${GIT_EXECUTABLE} describe --tags --always --dirty
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 	OUTPUT_VARIABLE GIT_REPO_VERSION
 	OUTPUT_STRIP_TRAILING_WHITESPACE)
-string(REGEX REPLACE "v" "" CMAKE_GIT_REPO_VERSION ${GIT_REPO_VERSION})
-string(REGEX REPLACE "-g.*" "" CMAKE_GIT_REPO_VERSION ${CMAKE_GIT_REPO_VERSION})
-string(REGEX REPLACE "-" "." CMAKE_GIT_REPO_VERSION ${CMAKE_GIT_REPO_VERSION})
+string(REGEX REPLACE "v([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" CMAKE_GIT_REPO_VERSION ${GIT_REPO_VERSION})
 string(REGEX REPLACE "^.......$" "0.0.0" CMAKE_GIT_REPO_VERSION ${CMAKE_GIT_REPO_VERSION}) # fix if all we have is the git SHA
 configure_file("headers/version.h.in" "headers/version.h")
 message("GIT_REPO_VERSION is ${GIT_REPO_VERSION}")
@@ -117,6 +116,9 @@ add_compile_options(-Wall
 include(compile_proto.cmake)
 compile_proto()
 
+#pull in tinyUSB
+set(PICO_TINYUSB_PATH "${CMAKE_CURRENT_LIST_DIR}/lib/tinyusb")
+
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
@@ -174,6 +176,7 @@ src/addons/inputhistory.cpp
 src/gamepad/GamepadDebouncer.cpp
 src/gamepad/GamepadDescriptors.cpp
 src/addons/tilt.cpp
+src/addons/xbonepassthrough.cpp
 ${PROTO_OUTPUT_DIR}/enums.pb.c
 ${PROTO_OUTPUT_DIR}/config.pb.c
 )
