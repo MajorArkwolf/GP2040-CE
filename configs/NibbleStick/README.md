@@ -1,6 +1,6 @@
 # GP2040 Configuration for the Nibble Stick
 
-![Open_Core0](assets/NibbleStick.jpg)
+![Nibble Stick](assets/NibbleStick.jpg)
 
 Basic pin setup for the Nibble Stick.
 
