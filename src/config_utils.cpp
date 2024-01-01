@@ -767,7 +767,7 @@ void gpioMappingsMigrationCore(Config& config)
     }
 
     // convert SOCD slider pin mappings to GPIO mapping config
-    if (socdSliderOptions.enabled && isValidPin(socdSliderOptions.deprecatedPinOne)) {
+    if (socdSliderOptions.enabled && socdSliderOptions.deprecatedPinOne != 0 && isValidPin(socdSliderOptions.deprecatedPinOne)) {
         switch (socdSliderOptions.deprecatedModeOne) {
             case SOCDMode::SOCD_MODE_UP_PRIORITY: {
                 actions[socdSliderOptions.deprecatedPinOne] = GpioAction::SUSTAIN_SOCD_MODE_UP_PRIO; break;
@@ -808,7 +808,7 @@ void gpioMappingsMigrationCore(Config& config)
             default: break;
         }
     }
-    if (socdSliderOptions.enabled && isValidPin(socdSliderOptions.deprecatedPinTwo)) {
+    if (socdSliderOptions.enabled && socdSliderOptions.deprecatedPinTwo != 0 && isValidPin(socdSliderOptions.deprecatedPinTwo)) {
         switch (socdSliderOptions.deprecatedModeTwo) {
             case SOCDMode::SOCD_MODE_UP_PRIORITY: {
                 actions[socdSliderOptions.deprecatedPinTwo] = GpioAction::SUSTAIN_SOCD_MODE_UP_PRIO; break;
