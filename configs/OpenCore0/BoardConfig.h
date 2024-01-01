@@ -37,7 +37,7 @@
 #define PIN_BUTTON_A1        5            // A1 / Guide / Home / PS / 13 / ~
 #define PIN_BUTTON_A2        4            // A2 / ~ / Capture / ~ / 14 / ~
 #define PIN_BUTTON_FN        -1           // Hotkey Function
-#define PIN_BUTTON_TURBO     27           // Turbo
+#define PIN_BUTTON_TURBO     -1           // Turbo
 #define PIN_BUTTON_REVERSE   -1           // UDLR Reverse
 #define PIN_SLIDER_ONE       25           // Left Stick Slider
 #define PIN_SLIDER_TWO       24           // Right Stick Slider
@@ -194,7 +194,7 @@
 // 4 - `NOSPLASH` - This will not display a splash screen on boot
 // Special note - All of the splash screen images can be changed via `include/bitmaps.h`
 
-#define HAS_I2C_DISPLAY 1
+#define HAS_I2C_DISPLAY 0
 #define I2C_SDA_PIN 0
 #define I2C_SCL_PIN 1
 #define I2C_BLOCK i2c0
