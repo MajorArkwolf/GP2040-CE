@@ -466,6 +466,10 @@ void ConfigUtils::initUnsetPropertiesWithDefaults(Config& config)
 
     // addonOptions.dualDirectionalOptions
     INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, enabled, !!DUAL_DIRECTIONAL_ENABLED);
+    INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, deprecatedUpPin, PIN_DUAL_DIRECTIONAL_UP);
+    INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, deprecatedDownPin, PIN_DUAL_DIRECTIONAL_DOWN);
+    INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, deprecatedLeftPin, PIN_DUAL_DIRECTIONAL_LEFT);
+    INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, deprecatedRightPin, PIN_DUAL_DIRECTIONAL_RIGHT);
     INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, dpadMode, static_cast<DpadMode>(DUAL_DIRECTIONAL_STICK_MODE));
     INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, combineMode, DUAL_DIRECTIONAL_COMBINE_MODE);
     INIT_UNSET_PROPERTY(config.addonOptions.dualDirectionalOptions, fourWayMode, false);
