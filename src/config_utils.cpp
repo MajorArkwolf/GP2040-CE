@@ -434,6 +434,10 @@ void ConfigUtils::initUnsetPropertiesWithDefaults(Config& config)
     // addonOptions.sliderOptions
     INIT_UNSET_PROPERTY(config.addonOptions.sliderOptions, enabled, !!JSLIDER_ENABLED);
     INIT_UNSET_PROPERTY(config.addonOptions.sliderOptions, modeDefault, SLIDER_MODE_ZERO);
+	  INIT_UNSET_PROPERTY(config.addonOptions.sliderOptions, deprecatedPinSliderOne, PIN_SLIDER_ONE);
+    INIT_UNSET_PROPERTY(config.addonOptions.sliderOptions, deprecatedPinSliderTwo, PIN_SLIDER_TWO);
+    INIT_UNSET_PROPERTY(config.addonOptions.sliderOptions, deprecatedModeOne, SLIDER_MODE_ONE);
+    INIT_UNSET_PROPERTY(config.addonOptions.sliderOptions, deprecatedModeTwo, SLIDER_MODE_TWO);
 
     // addonOptions.reverseOptions
     INIT_UNSET_PROPERTY(config.addonOptions.reverseOptions, enabled, !!REVERSE_ENABLED);
@@ -446,11 +450,15 @@ void ConfigUtils::initUnsetPropertiesWithDefaults(Config& config)
 
     // addonOptions.socdSliderOptions
     INIT_UNSET_PROPERTY(config.addonOptions.socdSliderOptions, enabled, !!SLIDER_SOCD_ENABLED);
+    INIT_UNSET_PROPERTY(config.addonOptions.socdSliderOptions, deprecatedPinOne, PIN_SLIDER_SOCD_ONE);
+	  INIT_UNSET_PROPERTY(config.addonOptions.socdSliderOptions, deprecatedPinTwo, PIN_SLIDER_SOCD_TWO);
     INIT_UNSET_PROPERTY(config.addonOptions.socdSliderOptions, modeDefault, SLIDER_SOCD_SLOT_DEFAULT);
+    INIT_UNSET_PROPERTY(config.addonOptions.socdSliderOptions, deprecatedModeOne, SLIDER_SOCD_SLOT_ONE);
+    INIT_UNSET_PROPERTY(config.addonOptions.socdSliderOptions, deprecatedModeTwo, SLIDER_SOCD_SLOT_TWO);
 
     // addonOptions.analogADS1219Options
     INIT_UNSET_PROPERTY(config.addonOptions.analogADS1219Options, enabled, !!I2C_ANALOG1219_ENABLED);
-    INIT_UNSET_PROPERTY(config.addonOptions.analogADS1219Options, i2cBlock, (I2C_ANALOG1219_BLOCK == i2c0) ? 0 : 1)
+    INIT_UNSET_PROPERTY(config.addonOptions.analogADS1219Options, i2cBlock, (I2C_ANALOG1219_BLOCK == i2c0) ? 0 : 1);
     INIT_UNSET_PROPERTY(config.addonOptions.analogADS1219Options, deprecatedI2cSDAPin, I2C_ANALOG1219_SDA_PIN);
     INIT_UNSET_PROPERTY(config.addonOptions.analogADS1219Options, deprecatedI2cSCLPin, I2C_ANALOG1219_SCL_PIN);
     INIT_UNSET_PROPERTY(config.addonOptions.analogADS1219Options, i2cAddress, I2C_ANALOG1219_ADDRESS);
