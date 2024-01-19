@@ -65,7 +65,7 @@
 
 // Enabled Addons
 #define PSPASSTHROUGH_ENABLED 1
-#define PSPASSTHROUGH_PIN_DPLUS 28
+#define PSPASSTHROUGH_PIN_DPLUS 16
 #define XBONEPASSTHROUGH_ENABLED 1
 
 // Disabled Addons
