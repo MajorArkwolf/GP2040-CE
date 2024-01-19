@@ -11,41 +11,41 @@
 #define BOARD_CONFIG_LABEL "Open_Core0"
 
 // This is the main pin definition section.
-// This will let you specify which GPIO pin each button is assigned too.
+// This will let you specify which GPIO pin each button is assigned too. 
 // You can set any of the main pins as `-1` to disable it.
 // The Turbo pin and LS + RS slider pins can also be set to `-1` to disable that functionality.
 // Please note that only when `PIN_BUTTON_TURBO` is set to `-1` will the `T##` be removed from a connected display.
 // Please note that only when `PIN_SLIDER_ONE` and  `PIN_SLIDER_TWO` are set to `-1` will the button combo shortcut for DP/LS/RS work.
 // The buttons are listed in GP2040 configuration, beside each the listed order is *GP2040 / Xinput / Switch / PS3 / Directinput / Arcade*
 
-#define PIN_DPAD_UP          12           // UP
-#define PIN_DPAD_DOWN        10           // DOWN
-#define PIN_DPAD_RIGHT       11           // RIGHT
-#define PIN_DPAD_LEFT        9            // LEFT
-#define PIN_BUTTON_B1        13           // B1 / A / B / Cross / 2 / K1
-#define PIN_BUTTON_B2        14           // B2 / B / A / Circle / 3 / K2
-#define PIN_BUTTON_R2        15           // R2 / RT / ZR / R2 / 8 / K3
-#define PIN_BUTTON_L2        16           // L2 / LT / ZL / L2 / 7 / K4
-#define PIN_BUTTON_B3        17           // B3 / X / Y / Square / 1 / P1
-#define PIN_BUTTON_B4        18           // B4 / Y / X / Triangle / 4 / P2
-#define PIN_BUTTON_R1        19           // R1 / RB / R / R1 / 6 / P3
-#define PIN_BUTTON_L1        20           // L1 / LB / L / L1 / 5 / P4
-#define PIN_BUTTON_S1        6            // S1 / Back / Minus / Select / 9 / Coin
-#define PIN_BUTTON_S2        7            // S2 / Start / Plus / Start / 10 / Start
-#define PIN_BUTTON_L3        3            // L3 / LS / LS / L3 / 11 / LS
-#define PIN_BUTTON_R3        2            // R3 / RS / RS / R3 / 12 / RS
-#define PIN_BUTTON_A1        5            // A1 / Guide / Home / PS / 13 / ~
-#define PIN_BUTTON_A2        4            // A2 / ~ / Capture / ~ / 14 / ~
-#define PIN_BUTTON_FN        -1           // Hotkey Function
-#define PIN_BUTTON_TURBO     27           // Turbo
-#define PIN_BUTTON_REVERSE   -1           // UDLR Reverse
-#define PIN_SLIDER_ONE       25           // Left Stick Slider
-#define PIN_SLIDER_TWO       24           // Right Stick Slider
-#define PIN_SLIDER_SOCD_ONE  23           // SOCD Slider Pin One
-#define PIN_SLIDER_SOCD_TWO  22           // SOCD Slider Pin Two
-
-#define TURBO_ENABLED 1
-#define JSLIDER_ENABLED 1
+#define PIN_DPAD_UP     20          // UP
+#define PIN_DPAD_DOWN   2           // DOWN
+#define PIN_DPAD_RIGHT  29          // RIGHT
+#define PIN_DPAD_LEFT   3           // LEFT
+#define PIN_BUTTON_B1   21          // B1 / A / B / Cross / 2 / K1
+#define PIN_BUTTON_B2   24          // B2 / B / A / Circle / 3 / K2
+#define PIN_BUTTON_R2   23          // R2 / RT / ZR / R2 / 8 / K3
+#define PIN_BUTTON_L2   22          // L2 / LT / ZL / L2 / 7 / K4
+#define PIN_BUTTON_B3   25          // B3 / X / Y / Square / 1 / P1
+#define PIN_BUTTON_B4   28          // B4 / Y / X / Triangle / 4 / P2
+#define PIN_BUTTON_R1   27          // R1 / RB / R / R1 / 6 / P3
+#define PIN_BUTTON_L1   26          // L1 / LB / L / L1 / 5 / P4
+#define PIN_BUTTON_S1   6           // S1 / Back / Minus / Select / 9 / Coin
+#define PIN_BUTTON_S2   5           // S2 / Start / Plus / Start / 10 / Start
+#define PIN_BUTTON_L3   10          // L3 / LS / LS / L3 / 11 / LS
+#define PIN_BUTTON_R3   9           // R3 / RS / RS / R3 / 12 / RS
+#define PIN_BUTTON_A1   7           // A1 / Guide / Home / PS / 13 / ~
+#define PIN_BUTTON_A2   8           // A2 / ~ / Capture / ~ / 14 / ~
+#define PIN_BUTTON_FN   11          // Hotkey Function
+#define PIN_BUTTON_TURBO -1         // Turbo
+#define PIN_BUTTON_REVERSE -1       // UDLR Reverse
+#define PIN_SLIDER_ONE    -1        // Left Stick Slider
+#define PIN_SLIDER_TWO    -1        // Right Stick Slider
+#define PIN_SLIDER_SOCD_ONE    -1   // SOCD Slider Pin One
+#define PIN_SLIDER_SOCD_TWO    -1   // SOCD Slider Pin Two
+#define SLIDER_MODE_ONE DPAD_MODE_LEFT_ANALOG
+#define SLIDER_MODE_TWO DPAD_MODE_RIGHT_ANALOG
+#define SLIDER_MODE_ZERO DPAD_MODE_DIGITAL
 
 // This is the SOCD section.
 // SOCD stands for `simultaneous opposing cardinal directions`.
@@ -55,17 +55,19 @@
 // 3 - `SOCD_MODE_SECOND_INPUT_PRIORITY` - This is last priority SOCD.  EG. when you press and hold `up` then press `down` `down` will be registered.
 // 4 - `SOCD_MODE_FIRST_INPUT_PRIORITY` - This is first priority SOCD.  EG. when you press and hold `up` then press `down` `up` will be registered.
 
-#define DEFAULT_SOCD_MODE SOCD_MODE_NEUTRAL
+#define DEFAULT_SOCD_MODE SOCD_MODE_UP_PRIORITY 
 // SOCD Slider Slot Defaults
-#define SLIDER_SOCD_ENABLED 1
-#define SLIDER_SOCD_SLOT_ONE SOCD_MODE_UP_PRIORITY
+#define SLIDER_SOCD_SLOT_ONE SOCD_MODE_NEUTRAL
 #define SLIDER_SOCD_SLOT_TWO  SOCD_MODE_SECOND_INPUT_PRIORITY
-#define SLIDER_SOCD_SLOT_DEFAULT SOCD_MODE_NEUTRAL
+#define SLIDER_SOCD_SLOT_DEFAULT SOCD_MODE_UP_PRIORITY
 
 #define DEFAULT_FORCED_SETUP_MODE FORCED_SETUP_MODE_OFF // 	FORCED_SETUP_MODE_OFF, FORCED_SETUP_MODE_LOCK_MODE_SWITCH, FORCED_SETUP_MODE_LOCK_WEB_CONFIG, FORCED_SETUP_MODE_LOCK_BOTH
 #define DEFAULT_LOCK_HOTKEYS false // or true
 
-#define DEFAULT_PS4CONTROLLER_TYPE PS4_ARCADESTICK
+#define DEFAULT_INPUT_MODE INPUT_MODE_XINPUT //INPUT_MODE_XINPUT (XInput), INPUT_MODE_SWITCH (Nintendo Switch), INPUT_MODE_HID (D-Input), INPUT_MODE_KEYBOARD (Keyboard)
+#define DEFAULT_DPAD_MODE DPAD_MODE_DIGITAL  //DPAD_MODE_DIGITAL, DPAD_MODE_LEFT_ANALOG, DPAD_MODE_RIGHT_ANALOG, 
+
+#define DEFAULT_PS4CONTROLLER_TYPE PS4_CONTROLLER
 
 // This is the LEDs section.
 // The default `TURBO_LED_PIN` pin is set to `15` ( it is recommended to run through 3V3(OUT) with a resistor)
@@ -75,7 +77,7 @@
 // The board LED pin will allow you to connect addressible RGB LEDs on the Pico.
 // Addressible RGB LEDs should be connected to the `VBUS` pin (#40), an avalible ground pin and the defined `BOARD_LEDS_PIN`.
 // Special note - You should only ever use addressible RGB LEDs that are rated for 5v operation on the Pico.
-// The defualt `LED_BRIGHTNESS_MAXIMUM` value is `50`.
+// The defualt `LED_BRIGHTNESS_MAXIMUM` value is `50`.  
 // This will change how bright the LEDs are with `0` being off and `100` being full brightness.
 // The minimum `LED_BRIGHTNESS_MAXIMUM` value is `0`.
 // The maximum `LED_BRIGHTNESS_MAXIMUM` value is `100`.
@@ -91,7 +93,7 @@
 
 #define TURBO_LED_PIN -1
 
-#define BOARD_LEDS_PIN 8
+#define BOARD_LEDS_PIN 4
 
 #define LED_BRIGHTNESS_MAXIMUM 50
 #define LED_BRIGHTNESS_STEPS 5
@@ -101,40 +103,37 @@
 #define LEDS_DPAD_LEFT   0
 #define LEDS_DPAD_DOWN   1
 #define LEDS_DPAD_RIGHT  2
-#define LEDS_BUTTON_B3   3
-#define LEDS_BUTTON_B4   4
-#define LEDS_BUTTON_R1   5
-#define LEDS_BUTTON_L1   6
-#define LEDS_BUTTON_L2   7
-#define LEDS_BUTTON_R2   8
+#define LEDS_DPAD_UP     3
+#define LEDS_BUTTON_B3   4
+#define LEDS_BUTTON_B4   5
+#define LEDS_BUTTON_R1   6
+#define LEDS_BUTTON_L1   7
+#define LEDS_BUTTON_B1   8
 #define LEDS_BUTTON_B2   9
-#define LEDS_BUTTON_B1   10
-#define LEDS_DPAD_UP     11
+#define LEDS_BUTTON_R2   10
+#define LEDS_BUTTON_L2   11
 
-
-// This is the Player LED section.
+// This is the Player LED section.  
 // In this section you can specify if Player LEDs will be active, and, if active, which pins will be used for them.
 // The defualt is `PLED_TYPE_NONE` which will turn the Player LEDs off.
-// The default pin for each Player LED is `-1` which disables it.
-// To enable a `PLED#_PIN`, replace the `-1` with the GPIO pin number that is desired.
+// The default pin for each Player LED is `-1` which disables it.  
+// To enable a `PLED#_PIN`, replace the `-1` with the GPIO pin number that is desired. 
 // There are three options for `PLED_TYPE` currently:
 // 1 - `PLED_TYPE_NONE` - This will disable the Player LEDs
 // 2 - `PLED_TYPE_PWM` - This will enable the Player LEDs ( it is recommended to run through 3V3(OUT) with a resistor)
-// 3 - `PLED_TYPE_RGB` - This will enable the Player LEDs as addressible RGB LEDs (please not that this has not been implemented yet)
+// 3 - `PLED_TYPE_RGB` - This will enable the Player LEDs as addressible RGB LEDs (please not that this has not been implemented yet) 
 
-#define PLED_TYPE PLED_TYPE_RGB
-#define PLED1_PIN 24
-#define PLED2_PIN 25
-#define PLED3_PIN 26
-#define PLED4_PIN 27
-
-#define PLED_COLOR ColorGreen
+#define PLED_TYPE PLED_TYPE_NONE
+#define PLED1_PIN -1
+#define PLED2_PIN -1
+#define PLED3_PIN -1
+#define PLED4_PIN -1
 
 
 // This is the Analog section.
 // In this section you can specify if Analog is enabled, and, if endabled, which pins will be used for it.
 // The default for `ANALOG_ADC_VRX` and `ANALOG_ADC_VRY` is `-1` which disables them.
-// To enable a `ANALOG_ADC_VRX` and `ANALOG_ADC_VRY`, replace the `-1` with the GPIO pin numbers that are desired.
+// To enable a `ANALOG_ADC_VRX` and `ANALOG_ADC_VRY`, replace the `-1` with the GPIO pin numbers that are desired. 
 
 #define ANALOG_ADC_1_VRX -1
 #define ANALOG_ADC_1_VRY -1
@@ -145,25 +144,23 @@
 #define ANALOG_ADC_2_VRY -1
 #define ANALOG_ADC_2_MODE DPAD_MODE_RIGHT_ANALOG
 #define ANALOG_ADC_2_INVERT INVERT_NONE
-
-// Reverse Button section
-#define REVERSE_LED_PIN -1
-
 // This is the I2C Display section (commonly known as the OLED display section).
 // In this section you can specify if a display as been enabled, which pins are assined to it, the block address and speed.
 // The default for `HAS_I2C_DISPLAY` is `1` which enables it.
 // To disable the display you can change `HAS_I2C_DISPLAY` to `-1`.
 // The default `I2C_SDA_PIN` is `0`.
 // The defualt `I2C_SCL_PIN` is `1`.
-// The defualt `I2C_BLOCK` is `12c0`.
+// The defualt `I2C_BLOCK` is `12c0`.  
 // If you change the `I2C_SDA_PIN` and `I2C_SCL_PIN` pin mapping, you may need to change the `I2C_BLOCK` as well.
-// The defualt `I2C_SPEED` is `400000`.
+// The defualt `I2C_SPEED` is `400000`.  
 // This should be more than fast enough for most displays.
 // Some smaller displays (like 0.96" and 1.31") can go up to `800000` or even `1000000`.
 // The default `DISPLAY_FLIP` is `0`.
 // This can be changed to `1` to have the dispaly output flipped.
-// The default `DISPLAY_INVERY` is `0`.
+// The default `DISPLAY_INVERT` is `0`.
 // This can be changed to `1` to have the color on the display inverted.
+// The default `DISPLAY_SAVER_TIMEOUT` is `0`.
+// This can be changed to a number in minutes which will be the inactivity timeout for the display to turn off.
 // The default `BUTTON_LAYOUT` is `BUTTON_LAYOUT_STICK` which will show an arcade stick on the left hand side of the display.
 // There are seven options for `BUTTON_LAYOUT` currently:
 // 1 - BUTTON_LAYOUT_STICK - This is a basic joystick layout
@@ -186,7 +183,7 @@
 // 9 - BUTTON_LAYOUT_NOIR8 - This is the standard 8 button Noir layout
 // 10 - BUTTON_LAYOUT_KEYBOARDB - This is a WASD keyboard layout that is straight
 // 11 - BUTTON_LAYOUT_DANCEPADB - This is a dance pad layout (must be used with `BUTTON_LAYOUT_DANCEPADA` in `BUTTON_LAYOUT`)
-// The default `SPLASH_MODE` is `NOSPLASH`.
+// The default `SPLASH_MODE` is `NOSPLASH`.  
 // There are four options for `SPLASH_MODE` currently:
 // 1 - `STATICSPLASH` - This will display the static splash image
 // 2 - `CLOSEIN` - This will display the static splash image as a top and bottom coming together animation
@@ -194,22 +191,32 @@
 // 4 - `NOSPLASH` - This will not display a splash screen on boot
 // Special note - All of the splash screen images can be changed via `include/bitmaps.h`
 
-#define HAS_I2C_DISPLAY 1
+#define HAS_I2C_DISPLAY 0
 #define I2C_SDA_PIN 0
 #define I2C_SCL_PIN 1
 #define I2C_BLOCK i2c0
 #define I2C_SPEED 400000
-#define DISPLAY_FLIP 3
+#define DISPLAY_FLIP 0
 #define DISPLAY_INVERT 0
+#define DISPLAY_SAVER_TIMEOUT 0
 
+// I2C Analog ADS1219 Add-on Options
+#define I2C_ANALOG1219_SDA_PIN -1
+#define I2C_ANALOG1219_SCL_PIN -1
+#define I2C_ANALOG1219_BLOCK i2c0
+#define I2C_ANALOG1219_SPEED 400000
+#define I2C_ANALOG1219_ADDRESS 0x40
+
+// Reverse Button section
+#define REVERSE_LED_PIN -1
 #define REVERSE_UP_DEFAULT 1
 #define REVERSE_DOWN_DEFAULT 1
 #define REVERSE_LEFT_DEFAULT 1
 #define REVERSE_RIGHT_DEFAULT 1
 
-#define BUTTON_LAYOUT BUTTON_LAYOUT_STICKLESS
-#define BUTTON_LAYOUT_RIGHT BUTTON_LAYOUT_STICKLESSB
-#define SPLASH_MODE SPLASH_MODE_STATIC
+#define BUTTON_LAYOUT BUTTON_LAYOUT_STICK
+#define BUTTON_LAYOUT_RIGHT BUTTON_LAYOUT_VEWLIX
+#define SPLASH_MODE SPLASH_MODE_NONE
 #define SPLASH_CHOICE SPLASH_CHOICE_MAIN
 #define SPLASH_DURATION 7500 // Duration in milliseconds
 
@@ -219,8 +226,8 @@
 //                  on the current mode (config, normal, or no USB data)
 // INPUT_TEST     - Blinks whenever any input is made
 
+#define BOARD_LED_ENABLED 0
 #define BOARD_LED_TYPE ON_BOARD_LED_MODE_OFF
-#define BOARD_LED_PIN -1
 
 // Dual Directional Add-on Options
 
@@ -231,8 +238,38 @@
 #define DUAL_DIRECTIONAL_STICK_MODE DPAD_MODE_DIGITAL
 #define DUAL_DIRECTIONAL_COMBINE_MODE DUAL_COMBINE_MODE_MIXED
 
+// TILTAdd-on Options
+#define PIN_TILT_1 -1
+#define TILT1_FACTOR_LEFT_X  35  //Default value for the TILT button to function.
+#define TILT1_FACTOR_LEFT_Y  35 //Default value for the TILT button to function.
+#define TILT1_FACTOR_RIGHT_X 35  //Default value for the TILT button to function.
+#define TILT1_FACTOR_RIGHT_Y 35 //Default value for the TILT button to function.
+#define PIN_TILT_2 -1
+#define TILT2_FACTOR_LEFT_X  65  //Default value for the TILT button to function.
+#define TILT2_FACTOR_LEFT_Y  65  //Default value for the TILT button to function.
+#define TILT2_FACTOR_RIGHT_X 65  //Default value for the TILT button to function.
+#define TILT2_FACTOR_RIGHT_Y 65  //Default value for the TILT button to function.
+#define PIN_TILT_LEFT_ANALOG_UP -1
+#define PIN_TILT_LEFT_ANALOG_DOWN -1
+#define PIN_TILT_LEFT_ANALOG_LEFT -1
+#define PIN_TILT_LEFT_ANALOG_RIGHT -1
+#define PIN_TILT_RIGHT_ANALOG_UP -1
+#define PIN_TILT_RIGHT_ANALOG_DOWN -1
+#define PIN_TILT_RIGHT_ANALOG_LEFT -1
+#define PIN_TILT_RIGHT_ANALOG_RIGHT -1
+#define TILT_SOCD_MODE SOCD_MODE_NEUTRAL
+
 // BOOTSEL Button Add-on setting
 #define BOOTSEL_BUTTON_MASK 0 // 0 means none, get other mask from GamepadState.h
+
+// This is the Buzzer Speaker section.  
+// In this section you can specify if Buzzer Speaker will be active, and, if active, which pin will be used for them.
+// The default is `BUZZER_ENABLED` which will turn the Buzzer Speaker off.
+// The default pin for Buzzer Speaker is `-1` which will turn the Buzzer Speaker off.  
+// The default volume for Buzzer Speaker is 100 (max).  
+#define BUZZER_ENABLED 0
+#define BUZZER_PIN -1
+#define BUZZER_VOLUME 100
 
 // Extra Button Add-on setting
 #define EXTRA_BUTTON_MASK 0 // 0 means none, get other mask from GamepadState.h
@@ -240,17 +277,12 @@
 #define EXTRA_BUTTON_PIN -1
 
 // Button Lock Add-on setting
-#define FOCUS_MODE_ENABLED 1
-#define FOCUS_MODE_BUTTON_MASK GAMEPAD_MASK_S1 | GAMEPAD_MASK_S2 | GAMEPAD_MASK_A1 | GAMEPAD_MASK_A2 | GAMEPAD_MASK_L3 | GAMEPAD_MASK_R3 // 0 means none, get other mask from GamepadState.h
+#define FOCUS_MODE_BUTTON_MASK 0 // 0 means none, get other mask from GamepadState.h
                             // For directions, use GAMEPAD_MASK_DU, GAMEPAD_MASK_DD, GAMEPAD_MASK_DL and GAMEPAD_MASK_DR
-#define FOCUS_MODE_PIN 21
+#define FOCUS_MODE_PIN -1
 #define FOCUS_MODE_OLED_LOCK_ENABLED 0
 #define FOCUS_MODE_RGB_LOCK_ENABLED 0
-#define FOCUS_MODE_BUTTON_LOCK_ENABLED 1
-
-// USB Passthrough settings
-#define PSPASSTHROUGH_ENABLED 1
-#define PSPASSTHROUGH_PIN_DPLUS 28
+#define FOCUS_MODE_BUTTON_LOCK_ENABLED 0
 
 // Keyboard Mapping Configuration
 // List of HID keycodes can be located here: https://github.com/hathach/tinyusb/blob/3623ba1884ddff23e9b64766cb6dd032f1425846/src/class/hid/hid.h#L356
@@ -273,5 +305,15 @@
 #define KEY_BUTTON_R3   HID_KEY_MINUS         // R3 / RS / RS / R3 / 12 / RS
 #define KEY_BUTTON_A1   HID_KEY_9             // A1 / Guide / Home / PS / 13 / ~
 #define KEY_BUTTON_A2   HID_KEY_F2            // A2 / ~ / Capture / ~ / 14 / ~
+
+// Keyboard Host Addon defaults
+#define KEYBOARD_HOST_ENABLED 0
+#define KEYBOARD_HOST_PIN_DPLUS -1
+#define KEYBOARD_HOST_PIN_5V -1
+
+// PS Passthrough Host Addon defaults
+#define PSPASSTHROUGH_HOST_ENABLED 1
+#define PSPASSTHROUGH_HOST_PIN_DPLUS 16
+#define PSPASSTHROUGH_HOST_PIN_5V -1
 
 #endif
