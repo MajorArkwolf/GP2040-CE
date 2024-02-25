@@ -103,15 +103,15 @@
 #define LEDS_DPAD_LEFT   0
 #define LEDS_DPAD_DOWN   1
 #define LEDS_DPAD_RIGHT  2
-#define LEDS_DPAD_UP     3
-#define LEDS_BUTTON_B3   4
-#define LEDS_BUTTON_B4   5
-#define LEDS_BUTTON_R1   6
-#define LEDS_BUTTON_L1   7
-#define LEDS_BUTTON_B1   8
+#define LEDS_BUTTON_B3   3
+#define LEDS_BUTTON_B4   4
+#define LEDS_BUTTON_R1   5
+#define LEDS_BUTTON_L1   6
+#define LEDS_BUTTON_L2   7
+#define LEDS_BUTTON_R2   8
 #define LEDS_BUTTON_B2   9
-#define LEDS_BUTTON_R2   10
-#define LEDS_BUTTON_L2   11
+#define LEDS_BUTTON_B1   10
+#define LEDS_DPAD_UP     11
 
 // This is the Player LED section.  
 // In this section you can specify if Player LEDs will be active, and, if active, which pins will be used for them.
